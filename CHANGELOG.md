@@ -1,3 +1,13 @@
+## [1.2.0](https://github.com/brandonp2412/instagram-patches/compare/v1.1.0...v1.2.0) (2026-11-26)
+
+### ✨ New Features
+
+* support Instagram 456 notification prompts ([3823c55](https://github.com/brandonp2412/instagram-patches/commit/3823c55f0612dcf247a238ffb46fdb645bb3a3e2))
+
+### 🐛 Bug Fixes
+
+* remove unused Direct notification result instruction ([e8b00e0](https://github.com/brandonp2412/instagram-patches/commit/e8b00e0a3196bb61ea518b74b087d41aa96d3c70))
+
 ## [1.1.0](https://github.com/brandonp2412/instagram-patches/compare/v1.0.1...v1.1.0) (2026-11-26)
 
 ### ✨ New Features

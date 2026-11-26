@@ -1,6 +1,10 @@
-# Hide Instagram notification prompts
+# Instagram patches
 
-A standalone [Morphe](https://morphe.software/) patch that removes Instagram notification opt-in prompts **without disabling notifications**. It does not touch permission APIs, push delivery, or per-account notification settings.
+A standalone [Morphe](https://morphe.software/) bundle for Instagram. Patches are individually optional and target different validated APK versions.
+
+## Hide notification prompts
+
+Removes Instagram notification opt-in prompts **without disabling notifications**. It does not touch permission APIs, push delivery, or per-account notification settings.
 
 ## What is hidden
 
@@ -13,14 +17,14 @@ A standalone [Morphe](https://morphe.software/) patch that removes Instagram not
 - Delayed permission prompts and re-foreground reachability toast
 - Profile notification ViewStub
 
-## Compatibility
+### Notification patch compatibility
 
 - **Instagram 454.0.0.13.77** (com.instagram.android) — pinned to the FeurStagram 454.0.0.13.77 APK against which the original implementation has been verified.
 - Other Instagram builds are **not** claimed compatible. Class names are obfuscated; patch matching must fail rather than change unrelated methods when they move.
 
 ## Installation
 
-Add [this repository](https://morphe.software/add-source?github=brandonp2412/instagram-notification-nudges) as a patch source in [Morphe Manager](https://morphe.software/). Select **Hide notification prompts** while patching the matching APK.
+Add [this repository](https://morphe.software/add-source?github=brandonp2412/instagram-patches) as a patch source in [Morphe Manager](https://morphe.software/). Select **Hide notification prompts** while patching the matching APK.
 
 ## Source and validation
 
@@ -41,6 +45,17 @@ For reproducing verification:
 4. Validate no notification API code was patched, confirm all listed UI nags are hidden, and test real message notifications.
 
 No APK, signing key, or third-party application code is included.
+
+## Hide follow recommendations
+
+An independent [Morphe](https://morphe.software/) patch bundle to hide suggested accounts to follow, profile recommendation carousels and suggestions in follow requests.
+
+Requires **FeurStagram 456.0.0.53.78** (com.instagram.android). It does not require GramForge or the notification patch. Stock Instagram is not supported: the feed filter uses FeurStagram hooks.
+
+The original [GramForge implementation](https://github.com/brandonp2412/GramForge/blob/main/tools/patch-follow-recommendations.py) was confirmed working on a Samsung Galaxy S25. This port uses the same four hooks; normal posts, Reels, sharing and real follow requests are not targeted.
+
+
+Select **Hide follow recommendations** on the matching FeurStagram APK. Morphe Desktop 2.1.1 with `--validate` successfully applied the standalone patch to FeurStagram 456, modifying exactly four classes and rebuilding and signing successfully. The standalone port has not yet been exercised in a logged-in account.
 
 ## Patch list
 

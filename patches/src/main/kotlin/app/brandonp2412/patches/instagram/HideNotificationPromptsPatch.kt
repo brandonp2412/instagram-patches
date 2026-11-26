@@ -24,6 +24,7 @@ import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 import com.android.tools.smali.dexlib2.builder.BuilderOffsetInstruction
 import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction30t
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction10x
 
 /**
  * Suppresses only Instagram's notification opt-in UI, never the Android notification API,
@@ -224,7 +225,13 @@ val hideNotificationPromptsPatch = patch(
             surfaceB.returnEarly(false)
             controllers.forEach { it.returnEarly(false) }
             quick.addInstructionsWithLabels(q + 4, "goto/16 :skipPrompt", ExternalLabel("skipPrompt", qTarget))
-            thread.implementation!!.replaceInstruction(t, BuilderInstruction30t(Opcode.GOTO_32, threadTarget))
+            thread.implementation!!.apply {
+                replaceInstruction(t, BuilderInstruction30t(Opcode.GOTO_32, threadTarget))
+                // Remove the original move-result and conditional as well: a
+                // move-result must never survive without its invoke.
+                replaceInstruction(t + 1, BuilderInstruction10x(Opcode.NOP))
+                replaceInstruction(t + 2, BuilderInstruction10x(Opcode.NOP))
+            }
             // Preserve the non-notification empty-state copy. v40/v41 are scratch
             // registers here and are initialized again before their original use.
             empty.addInstructionsWithLabels(button, "if-eqz v19, :skipButton", ExternalLabel("skipButton", button + 1))

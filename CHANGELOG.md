@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/brandonp2412/instagram-patches/compare/v1.0.1...v1.1.0) (2026-11-26)
+
+### ✨ New Features
+
+* consolidate Instagram follow recommendations into the patch bundle ([6c64ca4](https://github.com/brandonp2412/instagram-patches/commit/6c64ca4387f2fd5181e964d94348cee98c69c042))
+
 ## [1.0.1](https://github.com/brandonp2412/instagram-notification-nudges/compare/v1.0.0...v1.0.1) (2026-11-12)
 
 ### 🐛 Bug Fixes

@@ -60,20 +60,21 @@ Select **Hide follow recommendations** on the matching FeurStagram APK. Morphe D
 ## Patch list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.0.1](https://github.com/brandonp2412/instagram-notification-nudges/releases/tag/v1.0.1)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;1 patches total
+> **[v1.1.0](https://github.com/brandonp2412/instagram-patches/releases/tag/v1.1.0)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;2 patches total
 <details open>
-<summary>📦 Instagram&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<summary>📦 Instagram (FeurStagram)&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
 <br>
 
 **Package name:** `com.instagram.android`
 
 **🎯 Supported versions:**
 
-| 454.0.0.13.77 |
+| 456.0.0.53.78 |
 | :---: |
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
+| [Hide follow recommendations](#hide-follow-recommendations) | Hide suggested accounts to follow without hiding normal posts or sharing. Requires FeurStagram 456.0.0.53.78. |  |
 | [Hide notification prompts](#hide-notification-prompts) | Hide Instagram's notification opt-in nags without disabling notifications. |  |
 
 </details>

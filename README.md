@@ -20,6 +20,7 @@ Removes Instagram notification opt-in prompts **without disabling notifications*
 ### Notification patch compatibility
 
 - **Instagram 454.0.0.13.77** (com.instagram.android) — pinned to the FeurStagram 454.0.0.13.77 APK against which the original implementation has been verified.
+- **Instagram 456.0.0.53.78** — ported all eleven notification-specific classes from GramForge, including shared reachability gates, Direct empty-state and Reel sharing prompts.
 - Other Instagram builds are **not** claimed compatible. Class names are obfuscated; patch matching must fail rather than change unrelated methods when they move.
 
 ## Installation
@@ -28,11 +29,12 @@ Add [this repository](https://morphe.software/add-source?github=brandonp2412/ins
 
 ## Source and validation
 
-Ported from [GramForge's notification-nudge patch](https://github.com/brandonp2412/GramForge/blob/main/tools/patch-notification-nudges.py). The original Python patch checks a decoded APK for all expected notification-specific anchors before touching anything. The Kotlin implementation uses targeted method fingerprints and preserves unrelated Quick Promotions, Direct-thread banners, and profile UI.
+Ported from [GramForge's notification-nudge patch](https://github.com/brandonp2412/GramForge/blob/dc7eceb33c5761d40cd10d3473f5e5867a3ac6b7/tools/patch-notification-nudges.py). The original Python patch checks a decoded APK for all expected notification-specific anchors before touching anything. The Kotlin implementation uses targeted method fingerprints and preserves unrelated Quick Promotions, Direct-thread banners, and profile UI.
 
 ### Verification status
 
 - The official Morphe Desktop 2.1.1 CLI applied the patch to the 454.0.0.13.77 APK with --validate enabled and modified exactly 12 expected classes.
+- Morphe Desktop 2.4.0 applied the 456 patch with validation enabled and modified eleven classes.
 - Decompiled smali comparison confirms only the expected notification presentation checks and branch guards were modified.
 - A disposable Android 15 emulator installed the patched APK, displayed the Instagram welcome screen, and produced no crash reports.
 - **Authenticated feed/DM notification-prompt behavior and push delivery have not been verified on a logged-in account**; please report any remaining opt-in prompts or regressions.
